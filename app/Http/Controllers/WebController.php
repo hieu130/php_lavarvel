@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 class WebController extends Controller
 {
     //
-    public function home(){
+    public function home()
+    {
         return view("home");
     }
-    public function aboutUs(){
-    return view("about-us");
-}
+
+    public function aboutUs()
+    {
+        return view("about-us");
+    }
+
+    public function brand()
+    {
+        return view("brand");
+    }
 }

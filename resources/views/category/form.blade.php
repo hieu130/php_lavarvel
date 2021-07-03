@@ -1,11 +1,11 @@
 @extends("layout")
-@section("page_title","Categories")
+@section("page_title","Category")
 @section("main")
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Categories</h1>
+                    <h1 class="m-0">Products</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,15 +21,16 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-6">
-                    <form action="{{url("/categories/save")}}" method="post">
+                    <form action="{{url("admin/categories/save")}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control"/>
+                            <input type="text" name="name" value="{{old("name")}}" class="form-control"/>
+                            @error("name")
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
-                        <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary">Submit</button>
-                        </div>
                     </form>
 
                 </div>

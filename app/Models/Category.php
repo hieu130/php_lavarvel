@@ -15,5 +15,7 @@ class Category extends Model
         "name"
     ];
     //public $timestamps = true; //mặc định là true -> tự động cập nhật tgian vào 2 cột create at và update up
-
+    public function Products(){
+        return $this->hasMany(Product::class);
+    }
 }

@@ -1,15 +1,28 @@
 @extends("layout")
-@section("page_title","Categories")
+@section("page_title","Products")
 @section("main")
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Categories</h1>
+                <div class="col-sm-4">
+                    <h1 class="m-0">Products</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
+                <div class="col-sm-5">
+                    <form action="{{url("admin/products")}}" method="get">
+                        <input type="text" name="search" class="form-control-sm" placeholder="search"/>
+                        <select name="category_id" class="form-control-sm">
+                            <option value="0">Select category</option>
+                            @foreach($categories as $item)
+                                <option @if(app("request")->input("category_id")== $item->id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+
+                        <button class="btn btn-primary btn-sm" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="col-sm-3">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{url("categories/new")}}">New category</a></li>
+                        <li class="breadcrumb-item"><a href="{{url("admin/categories/new")}}">New Category</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -26,19 +39,23 @@
                         <th>Name</th>
                         <th>Created at</th>
                         <th>Updated at</th>
+                        <th></th>
                         </thead>
                         <tbody>
                         @foreach($categories as $item)
                             <tr>
-                                <td>{{$item->id}}</td>
+                                <td>{{$loop->index +1}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->created_at}}</td>
                                 <td>{{$item->updated_at}}</td>
+                                <td>
+                                    <a href="{{url("admin/products/edit",["id"=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
+                                    <a onclick="return confirm('Chắc chắn xóa sản phẩm {{$item->name}} ?')" href="{{url("admin/products/delete",["id"=>$item->id])}}" class="btn btn-outline-danger">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
