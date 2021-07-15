@@ -9,14 +9,14 @@ class BookController extends Controller
 {
     public function list_book(Request $request){
         $search = $request->get("search");
-        $books = Book::all()->search($search)->paginate(10);
-        return view("book.books",[
-            "books" => $books
+        $books = Book::all()->search($search);
+        return view("library_book.book",[
+            "books" =>$books
         ]);
     }
 
     public function create_book(){
-        return view("book.create_book");
+        return view("library_book.create_book");
     }
     public function save_book(Request $request){
         try{
@@ -27,7 +27,7 @@ class BookController extends Controller
                 "pub_year" => $request->get("pub_year"),
                 "available" => $request->get("available"),
             ]);
-            return redirect()->to("/books");
+            return redirect()->to("/list-book");
         }catch (\Exception $e){
             abort(404);
         }
