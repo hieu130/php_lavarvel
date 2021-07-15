@@ -3,6 +3,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +18,6 @@ use App\Http\Controllers\ProductController;
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get("/list-book",[BookController::class,"list_book"]);
+Route::get("/list-book/create-book",[BookController::class,"create_book"]);
+Route::post("/list-book/save-book",[BookController::class,"save_book"]);

@@ -60,9 +60,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url("admin/brand") }}" class="nav-link">
+                    <a href="{{ url("/list-book") }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Brand</p>
+                        <p>Library Book</p>
                     </a>
                 </li>
             </ul>

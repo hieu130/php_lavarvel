@@ -1,5 +1,4 @@
-Nguyễn Thị Linh
-Linh đã gửi Hôm nay lúc 10:27
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
