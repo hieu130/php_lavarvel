@@ -42,9 +42,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url("admin/about-us") }}" class="nav-link">
+                    <a href="{{ url("admin/students") }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>About us</p>
+                        <p>Student</p>
                     </a>
                 </li>
                 <li class="nav-item">

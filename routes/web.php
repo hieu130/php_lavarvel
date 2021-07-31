@@ -21,3 +21,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get("/list-book",[BookController::class,"list_book"]);
 Route::get("/list-book/create-book",[BookController::class,"create_book"]);
 Route::post("/list-book/save-book",[BookController::class,"save_book"]);
+Route::get("/checkout",[WebController::class,"checkout"]);

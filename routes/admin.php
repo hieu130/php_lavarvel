@@ -28,5 +28,9 @@ Route::middleware("auth")->group(function (){ //bắt buộc phải login mới 
     Route::get("/products/edit/{id}",[ProductController::class,"edit"]);
     Route::post("/products/update/{id}",[ProductController::class,"update"]);
     Route::get("/products/delete/{id}",[ProductController::class,"delete"]);
+
+    Route::get("/students",[StudentController::class,"list_student"]);
+    Route::get("/students/feedback/{student_id}",[StudentController::class,"feed_back"]);
+    Route::post("/students/save-feedback",[StudentController::class,"save_feedback"]);
 });
 
